@@ -61,6 +61,12 @@ public class Mainp {
           
          System.out.println("Posti disponibili: " + (evento.getpostiTotali() - evento.getpostiPrenotati()));
 
+         
+         Concerto concerto = new Concerto(titolo, dataInput, postiTotali );
+
+         
+         System.out.println(concerto.toString());
+         
          input.close();
          
 	}       
