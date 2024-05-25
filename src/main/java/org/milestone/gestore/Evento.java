@@ -1,42 +1,34 @@
 package org.milestone.gestore;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 
-/*
- * 
--	titolo
--	data
--	numero di posti in totale
--	numero di posti prenotati
-
- */
 public class Evento {
-	private String titolo;
-	private LocalDate date;
-	private int postiTotali;
-	private int postiPrenotati = 0;
+	protected String titolo;
+	protected LocalDate data;
+	protected int postiTotali;
+	protected int postiPrenotati = 0;
 	
 
 
 	
-	public Evento() {
+
+
+	public Evento(String titolo, LocalDate data, int postiTotali) {
 		this.titolo = titolo;
-		this.postiPrenotati = postiPrenotati;
+		this.postiPrenotati = 0;
 		this.postiTotali = postiTotali;
-		this.date = date;
+		this.data = data;
 			    
-		//-------------DATA-----------------------
-	
-		LocalDate ld = LocalDate.now(); // data non formattata
-		
-		DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String date = ld.format(formatDate);
-		System.out.println(date); //data formattata
-	    //----------------------------------------
 
-		
+
+		  if(postiTotali<0) {
+			  System.out.println("il numero dei posti non può essere negativo");
+		  }
+		  else {
+			  this.postiTotali = postiTotali;
+		  }
+				 
 	}
 
 	public String getTitolo() {
@@ -47,49 +39,56 @@ public class Evento {
 		this.titolo = titolo;
 	}
 
-	public LocalDate getDate() {
-		return date;
+	public LocalDate getData() {
+		return data;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
-	public int getPostiTotali() {
+	public int getpostiTotali() {
 		return postiTotali;
 	}
 
-	public int getPostiPrenotati() {
+	public int getpostiPrenotati() {
 		return postiPrenotati;
 	}
 
-	/*
-	 * aggiunge uno ai posti prenotati.
-	 *  Se l’evento è già passato o non ha posti disponibili deve restituire un messaggio di avviso
-	 */
+	//-------------DATA-----------------------
+	public boolean dataValida() {
+		LocalDate oggi = LocalDate.now();
+		return !data.isBefore(oggi);
+	}
+
+	
+    
+    //----------------------------------------
 	
 	public void prenota() {
+		
 		if(postiPrenotati >= postiTotali) {
 			System.out.println("Mi dispiace l'evento è pieno");
 		} else {
-		this.postiPrenotati++;
+		this.postiPrenotati++ ;
 		}
+		
 	}
 	/*
 	 * disdici: riduce di uno i posti prenotati. 
 	 * Se l’evento è già passato o non ci sono prenotazioni restituisce un messaggio di avviso.
 	 */
 	public void disdici() {
-		if (postiPrenotati<= postiTotali ) {
+		if (postiPrenotati<= 0 ) {
 			System.out.println("Non risultano prenotazioni");
 		}else {
-			postiPrenotati--;
+			this.postiPrenotati--;
 		}	
 	}
 	
 	@Override
 	public String toString() {
-		return titolo + date;
+		return titolo + " "+ data;
 		
 	}
 		
