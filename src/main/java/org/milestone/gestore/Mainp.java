@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class Mainp {
 
-	
-	
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -44,29 +42,40 @@ public class Mainp {
        
          System.out.println("il totale dei posti sono: " + evento.getpostiTotali());
          
+       
+       System.out.println("[1] Se vuoi fare una prenotazione ");
+       System.out.println("[2] Se vuoi disdire una prenotazione");
+       System.out.println("[3] Se vuoi avere informazioni su altri eventi");
+       
+       int scelta = input.nextInt();
+
+       switch (scelta) {
+         case 1 : 
          //---------------PRENOTA---------------
          System.out.print("Quante prenotazioni vuoi fare? ");
-         input.nextInt();
+         evento.postiPrenotati = input.nextInt();
          evento.prenota();
-         //-------------------------------------         
-         
          System.out.println("Posti prenotati: " + evento.getpostiPrenotati());
          System.out.println("Posti disponibili: " + (evento.getpostiTotali() - evento.getpostiPrenotati()));
+         //------------------------------------- 
+         break;
          
+         case 2 : 
          //---------------DISDICI---------------
          System.out.print("Quante prenotazioni vuoi disdire? ");
-          input.nextInt();
+         evento.postiPrenotati = input.nextInt();
           evento.disdici();
+          System.out.println("Posti disponibili: " + (evento.getpostiTotali() - evento.getpostiPrenotati()));
          //-------------------------------------
+          break;
           
-         System.out.println("Posti disponibili: " + (evento.getpostiTotali() - evento.getpostiPrenotati()));
-
-         
+         case 3 : 
+         System.out.println("INFO EVENTO: CONCERTO");
          Concerto concerto = new Concerto(titolo, dataInput, postiTotali );
-
-         
          System.out.println(concerto.toString());
-         
+          break;
+         }
+   
          input.close();
          
 	}       

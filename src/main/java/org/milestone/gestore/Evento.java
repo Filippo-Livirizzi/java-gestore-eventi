@@ -1,7 +1,9 @@
 package org.milestone.gestore;
 
-import java.time.format.DateTimeFormatter;
+
 import java.time.LocalDate;
+
+
 
 
 public class Evento {
@@ -9,19 +11,12 @@ public class Evento {
 	protected LocalDate data;
 	protected int postiTotali;
 	protected int postiPrenotati = 0;
-	
-
-
-	
-
 
 	public Evento(String titolo, LocalDate data, int postiTotali) {
 		this.titolo = titolo;
 		this.postiPrenotati = 0;
 		this.postiTotali = postiTotali;
 		this.data = data;
-			    
-
 
 		  if(postiTotali<0) {
 			  System.out.println("il numero dei posti non può essere negativo");
@@ -32,6 +27,7 @@ public class Evento {
 				 
 	}
 
+	//-------------------GETTERS AND SETTERS---------------------------
 	public String getTitolo() {
 		return titolo;
 	}
@@ -56,32 +52,31 @@ public class Evento {
 		return postiPrenotati;
 	}
 
-	//-------------DATA-----------------------
+	//----------------------------------------------------------------
+
+	
+	//-------------DATA-----------------------------------------------
 	public boolean dataValida() {
 		LocalDate oggi = LocalDate.now();
 		return !data.isBefore(oggi);
 	}
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-    //----------------------------------------
+    //-----------------------------------------------------------------
 	
+	
+	//-------------COSTRUTTORI PRENOTA E DISDICI-----------------------
 	public void prenota() {
-		
 		if(postiPrenotati >= postiTotali) {
 			System.out.println("Mi dispiace l'evento è pieno");
-		} else {
-		this.postiPrenotati++ ;
 		}
-		
 	}
 	
 	public void disdici() {
 		if (postiPrenotati<= 0 ) {
 			System.out.println("Non risultano prenotazioni");
-		}else {
-			this.postiPrenotati--;
-		}	
+		}
 	}
+	//----------------------------------------------------------------
+	
 	
 	@Override
 	public String toString() {
