@@ -39,16 +39,21 @@ public class Mainp {
         
          System.out.println("Evento creato! " );
          System.out.println(evento.toString() );
-       
-         System.out.println("il totale dei posti sono: " + evento.getpostiTotali());
+        
          
          Concerto concerto = new Concerto(titolo, dataInput, postiTotali );
-       
+     
+         System.out.println("il totale dei posti sono: " + evento.getpostiTotali());
+     
+         ProgrammEventi programmi = new ProgrammEventi (titolo);
+
+         programmi.aggiungiEvento(evento,concerto);
          
          
-       System.out.println("[1] Se vuoi fare una prenotazione ");
-       System.out.println("[2] Se vuoi disdire una prenotazione");
-       System.out.println("[3] Se vuoi avere informazioni su altri eventi");
+       System.out.println("[1] Fare una prenotazione ");
+       System.out.println("[2] Disdire una prenotazione");
+       System.out.println("[3] Informazioni sugli eventi");
+       System.out.println("[4] Elimina tutti gli eventi creati");
        
        int scelta = input.nextInt();
 
@@ -73,11 +78,13 @@ public class Mainp {
           break;
           
          case 3 : 
-         System.out.println("inserire un prezzo");	 
-         concerto.setPrezzo(input.nextDouble());
-         System.out.println("INFO EVENTO: CONCERTO");
-         System.out.println(concerto.toString());
-          break;
+         programmi.totEventi();
+         break;
+         
+         case 4:
+        	 programmi.stopEventi();
+        	 System.out.println("Tutti gli eventi sono stati cancellati" + programmi.getEventi());
+        	 break; 
          }
    
        

@@ -16,9 +16,12 @@ public class Concerto extends Evento{
 	public  Concerto(String titolo, LocalDate data, int postiTotali) {
 		super(titolo, data, postiTotali);
 		this.ora = ora;
-		this.prezzo = prezzo;
+		this.prezzo = (double)(Math.random() * 1000);  
+	 
 	}
 
+	//-------------------GETTERS AND SETTERS---------------------------
+	
 	public double getPrezzo() {
 		return prezzo;
 	}
@@ -34,6 +37,14 @@ public class Concerto extends Evento{
 	public void setOra(LocalTime ora) {
 		this.ora = ora;
 	}
+	
+	//----------------------------------------------------------------
+	
+	
+	
+	
+	
+	
 
 	//-------------------DATA, ORA e PREZZO FORMATTATA-----------------------
 	public String formatted() {
