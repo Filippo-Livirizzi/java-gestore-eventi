@@ -42,7 +42,10 @@ public class Mainp {
        
          System.out.println("il totale dei posti sono: " + evento.getpostiTotali());
          
+         Concerto concerto = new Concerto(titolo, dataInput, postiTotali );
        
+         
+         
        System.out.println("[1] Se vuoi fare una prenotazione ");
        System.out.println("[2] Se vuoi disdire una prenotazione");
        System.out.println("[3] Se vuoi avere informazioni su altri eventi");
@@ -70,12 +73,14 @@ public class Mainp {
           break;
           
          case 3 : 
+         System.out.println("inserire un prezzo");	 
+         concerto.setPrezzo(input.nextDouble());
          System.out.println("INFO EVENTO: CONCERTO");
-         Concerto concerto = new Concerto(titolo, dataInput, postiTotali );
          System.out.println(concerto.toString());
           break;
          }
    
+       
          input.close();
          
 	}       

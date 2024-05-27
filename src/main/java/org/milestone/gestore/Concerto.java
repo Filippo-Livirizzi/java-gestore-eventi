@@ -19,11 +19,11 @@ public class Concerto extends Evento{
 		this.prezzo = prezzo;
 	}
 
-	public double getPrice() {
+	public double getPrezzo() {
 		return prezzo;
 	}
 
-	public void setPrice(double prezzo) {
+	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
 
@@ -49,7 +49,6 @@ public class Concerto extends Evento{
 	    }
 	//---------------------------------------------------------------
 	
-
 	@Override
 	public String toString(){
 		
