@@ -10,12 +10,12 @@ import java.time.format.DateTimeFormatter;
 public class Concerto extends Evento{
 	
 	private double prezzo;
-	LocalTime ora = LocalTime.now();
+	LocalTime ora;
 	
 
 	public  Concerto(String titolo, LocalDate data, int postiTotali) {
 		super(titolo, data, postiTotali);
-		this.ora = ora;
+		this.ora = LocalTime.now();
 		this.prezzo = (double)(Math.random() * 1000);  
 	 
 	}

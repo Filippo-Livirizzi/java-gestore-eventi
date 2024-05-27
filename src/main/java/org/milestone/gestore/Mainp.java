@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 
 
+
 public class Mainp {
 
 
@@ -76,7 +77,7 @@ public class Mainp {
           System.out.println("Posti disponibili: " + (evento.getpostiTotali() - evento.getpostiPrenotati()));
          //-------------------------------------
           break;
-          
+        		
          case 3 : 
          programmi.totEventi();
          break;
@@ -85,6 +86,7 @@ public class Mainp {
         	 programmi.stopEventi();
         	 System.out.println("Tutti gli eventi sono stati cancellati" + programmi.getEventi());
         	 break; 
+        	 
          }
    
        
